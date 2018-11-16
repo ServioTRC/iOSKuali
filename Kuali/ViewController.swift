@@ -11,17 +11,20 @@ import Firebase
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    var database: DatabaseReference!
+    //var database: DatabaseReference!
     var productos : [DataSnapshot]! = []
     private var handle : DatabaseHandle!
+    var id_producto = 0
     
+    //@IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        database = Database.database().reference()
+        //database = Database.database().reference()
         collectionView.dataSource = self
-        cargarProductos()
+        self.productos = GeneralInformation.productos
+        //cargarProductos()
         ordenarProductos()
         // Do any additional setup after loading the view, typically from a nib.
         
@@ -30,24 +33,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    func cargarProductos() {
-        self.productos.removeAll()
-        
-        self.database.child("Productos").observeSingleEvent(of: .value) { (snapshot) in
-            /*self.productos = (snapshot.value as! [DataSnapshot])
-            print("Productos \(self.productos.count)")
-            print("Ejemplo \(self.productos[1].key)")
-            self.collectionView.reloadData()*/
-            for child in snapshot.children{
-                self.productos.append(child as! DataSnapshot)
-            }
-            self.ordenarProductos()
-            self.collectionView.reloadData()
-            //print("\(self.productos[1].childSnapshot(forPath: "nombre"))")
-        }
-        
     }
     
     func ordenarProductos(){
@@ -83,6 +68,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             let likesProd = productoSnapshot.childSnapshot(forPath: "numLikes").value as! CFNumber
             let precioProd = productoSnapshot.childSnapshot(forPath: "precio").value as! CFNumber
             
+            let object = "\(productoSnapshot.childSnapshot(forPath: "id").value as! CFNumber)"
+            cell.id_producto = Int(object)!
+            //print("celda\(cell.id_producto)")
             cell.nombre.text = nomProd
             cell.precio.text = "$\(precioProd)"
             cell.likes.text = "\(likesProd)"
@@ -91,24 +79,42 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             let string_url = (productoSnapshot.childSnapshot(forPath: "url_imagenes").value as! [String])[0]
             
             if let url = URL(string: string_url){
-                DispatchQueue.main.async {
+                //DispatchQueue.main.async {
                     let tarea = URLSession.shared.dataTask(with: url) { (data, responde, error) in
                         if error == nil {
                             let respuesta = responde as! HTTPURLResponse
                             if respuesta.statusCode == 200 {
-                                cell.imagen.image = UIImage(data: data!)!
+                                DispatchQueue.main.async {
+                                    cell.imagen.image = UIImage(data: data!)!
+                                }
                             }
                         } else {
                             print("Error en la imagen")
                         }
                     }
                     tarea.resume()
-                }
+                //}
             }
         }
         
         return cell
         
+    }
+    
+    /*func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("lectura \(indexPath)")
+        let cell = collectionView.cellForItem(at: indexPath) as! CeldaProducto
+        print("celda completa: " + cell.nombre.text!)
+        self.id_producto = cell.id_producto
+    }*/
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "cambio_producto"{
+            let destinationViewController = segue.destination as! ProductoDetalle
+            let cell = sender as! CeldaProducto
+            destinationViewController.id_producto = cell.id_producto
+            //print("cambio \(self.id_producto)")
+        }
     }
     
 }

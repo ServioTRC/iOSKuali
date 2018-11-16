@@ -13,12 +13,17 @@
 		65E74428219789EB0008539F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E74427219789EB0008539F /* ViewController.swift */; };
 		65E7442B219789EB0008539F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65E74429219789EB0008539F /* Main.storyboard */; };
 		65E7442D219789EB0008539F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65E7442C219789EB0008539F /* Assets.xcassets */; };
-		65E74430219789EB0008539F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65E7442E219789EB0008539F /* LaunchScreen.storyboard */; };
 		65E7443B219789EB0008539F /* KualiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E7443A219789EB0008539F /* KualiTests.swift */; };
 		65E74446219789EB0008539F /* KualiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E74445219789EB0008539F /* KualiUITests.swift */; };
 		65E7445621978A450008539F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 65E7445521978A450008539F /* GoogleService-Info.plist */; };
 		65E7445721978A450008539F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 65E7445521978A450008539F /* GoogleService-Info.plist */; };
 		65E7445821978A450008539F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 65E7445521978A450008539F /* GoogleService-Info.plist */; };
+		97A619A7219F6FF00048FE5E /* ProductosFiltrados.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A619A6219F6FF00048FE5E /* ProductosFiltrados.swift */; };
+		97F63A6B219F21CB00FB8EE8 /* PantallaInicio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F63A6A219F21CB00FB8EE8 /* PantallaInicio.swift */; };
+		97F63A6D219F2B2D00FB8EE8 /* GeneralInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F63A6C219F2B2D00FB8EE8 /* GeneralInformation.swift */; };
+		97F63A6F219F2EB600FB8EE8 /* CeldaCategoria.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F63A6E219F2EB600FB8EE8 /* CeldaCategoria.swift */; };
+		97F63A71219F2F9800FB8EE8 /* VistaCategorias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F63A70219F2F9800FB8EE8 /* VistaCategorias.swift */; };
+		CB621EB2219F5B0B00D2B8B2 /* ProductoDetalle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB621EB1219F5B0B00D2B8B2 /* ProductoDetalle.swift */; };
 		F71351B0D24B195B85690294 /* Pods_Kuali.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4334DB57EDE7C54A55485B07 /* Pods_Kuali.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,7 +54,6 @@
 		65E74427219789EB0008539F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		65E7442A219789EB0008539F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		65E7442C219789EB0008539F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		65E7442F219789EB0008539F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		65E74431219789EB0008539F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		65E74436219789EB0008539F /* KualiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KualiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		65E7443A219789EB0008539F /* KualiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KualiTests.swift; sourceTree = "<group>"; };
@@ -58,8 +62,14 @@
 		65E74445219789EB0008539F /* KualiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KualiUITests.swift; sourceTree = "<group>"; };
 		65E74447219789EB0008539F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		65E7445521978A450008539F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		97A619A6219F6FF00048FE5E /* ProductosFiltrados.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductosFiltrados.swift; sourceTree = "<group>"; };
+		97F63A6A219F21CB00FB8EE8 /* PantallaInicio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantallaInicio.swift; sourceTree = "<group>"; };
+		97F63A6C219F2B2D00FB8EE8 /* GeneralInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralInformation.swift; sourceTree = "<group>"; };
+		97F63A6E219F2EB600FB8EE8 /* CeldaCategoria.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CeldaCategoria.swift; sourceTree = "<group>"; };
+		97F63A70219F2F9800FB8EE8 /* VistaCategorias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VistaCategorias.swift; sourceTree = "<group>"; };
 		BFEC674F092931DB0C5E380A /* Pods-Kuali.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kuali.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Kuali/Pods-Kuali.debug.xcconfig"; sourceTree = "<group>"; };
 		C137D94F3D35A43332E306DF /* Pods-Kuali.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kuali.release.xcconfig"; path = "Pods/Target Support Files/Pods-Kuali/Pods-Kuali.release.xcconfig"; sourceTree = "<group>"; };
+		CB621EB1219F5B0B00D2B8B2 /* ProductoDetalle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductoDetalle.swift; sourceTree = "<group>"; };
 		E32B60362A1C09EB51DA012F /* Pods_KualiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KualiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -124,14 +134,19 @@
 			isa = PBXGroup;
 			children = (
 				65E74425219789EB0008539F /* AppDelegate.swift */,
+				97F63A70219F2F9800FB8EE8 /* VistaCategorias.swift */,
+				CB621EB1219F5B0B00D2B8B2 /* ProductoDetalle.swift */,
 				65E74427219789EB0008539F /* ViewController.swift */,
 				65E74429219789EB0008539F /* Main.storyboard */,
 				65ABB4FE219B9E9A005B1A78 /* CeldaProducto.swift */,
 				65ABB4FC219B9849005B1A78 /* Producto.swift */,
 				65E7442C219789EB0008539F /* Assets.xcassets */,
-				65E7442E219789EB0008539F /* LaunchScreen.storyboard */,
 				65E7445521978A450008539F /* GoogleService-Info.plist */,
 				65E74431219789EB0008539F /* Info.plist */,
+				97F63A6A219F21CB00FB8EE8 /* PantallaInicio.swift */,
+				97F63A6C219F2B2D00FB8EE8 /* GeneralInformation.swift */,
+				97F63A6E219F2EB600FB8EE8 /* CeldaCategoria.swift */,
+				97A619A6219F6FF00048FE5E /* ProductosFiltrados.swift */,
 			);
 			path = Kuali;
 			sourceTree = "<group>";
@@ -273,7 +288,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65E74430219789EB0008539F /* LaunchScreen.storyboard in Resources */,
 				65E7445621978A450008539F /* GoogleService-Info.plist in Resources */,
 				65E7442D219789EB0008539F /* Assets.xcassets in Resources */,
 				65E7442B219789EB0008539F /* Main.storyboard in Resources */,
@@ -347,8 +361,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				65ABB4FD219B9849005B1A78 /* Producto.swift in Sources */,
+				97F63A71219F2F9800FB8EE8 /* VistaCategorias.swift in Sources */,
 				65E74428219789EB0008539F /* ViewController.swift in Sources */,
+				97F63A6F219F2EB600FB8EE8 /* CeldaCategoria.swift in Sources */,
+				CB621EB2219F5B0B00D2B8B2 /* ProductoDetalle.swift in Sources */,
+				97F63A6B219F21CB00FB8EE8 /* PantallaInicio.swift in Sources */,
+				97F63A6D219F2B2D00FB8EE8 /* GeneralInformation.swift in Sources */,
 				65E74426219789EB0008539F /* AppDelegate.swift in Sources */,
+				97A619A7219F6FF00048FE5E /* ProductosFiltrados.swift in Sources */,
 				65ABB4FF219B9E9A005B1A78 /* CeldaProducto.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -391,14 +411,6 @@
 				65E7442A219789EB0008539F /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		65E7442E219789EB0008539F /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				65E7442F219789EB0008539F /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
