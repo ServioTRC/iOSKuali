@@ -68,5 +68,15 @@ class VistaCategorias: UIViewController, UICollectionViewDelegate, UICollectionV
         // Pass the selected object to the new view controller.
     }
     */
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "filtro_categoria"{
+            let destinationViewController = segue.destination as! ProductosFiltrados
+            let cell = sender as! CeldaCategoria
+            destinationViewController.tipo_filtrado = "categoria"
+            destinationViewController.nombre_filtrado = cell.nombre.text!
+            //print("cambio \(self.id_producto)")
+        }
+    }
 
 }

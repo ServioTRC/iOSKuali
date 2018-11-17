@@ -159,7 +159,7 @@
                                             <outlet property="likes" destination="xsy-7B-iGq" id="jEA-pi-FBc"/>
                                             <outlet property="nombre" destination="vYk-U6-a2Y" id="SFF-1K-9qu"/>
                                             <outlet property="precio" destination="mml-b0-Ygx" id="7JH-4o-tbu"/>
-                                            <segue destination="0PX-bF-hy3" kind="show" id="4XU-7g-Dfh"/>
+                                            <segue destination="0PX-bF-hy3" kind="show" identifier="filtrado_detalle" id="4XU-7g-Dfh"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -174,6 +174,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4pc-hi-Bkv"/>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="GWj-Ud-Raa" id="WBS-Ih-XzI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AcB-BG-sG4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -318,6 +321,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="unfavoriteheart" translatesAutoresizingMaskIntoConstraints="NO" id="r3i-mE-CCf">
+                                <rect key="frame" x="302" y="350" width="57" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Dj4-j7-cad"/>
@@ -382,6 +389,7 @@
                     <connections>
                         <segue destination="5Gg-lo-Tcd" kind="relationship" relationship="viewControllers" id="liA-Tx-ahk"/>
                         <segue destination="Ycd-ym-6BB" kind="relationship" relationship="viewControllers" id="ltv-wT-vZe"/>
+                        <segue destination="4Pt-r9-VOB" kind="relationship" relationship="viewControllers" id="rpc-J7-d8r"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h2x-W6-pFS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -426,8 +434,121 @@
             </objects>
             <point key="canvasLocation" x="-378.26086956521743" y="346.875"/>
         </scene>
+        <!--Vista Favoritos-->
+        <scene sceneID="OZZ-wX-cc9">
+            <objects>
+                <viewController id="jpf-zy-sPe" customClass="VistaFavoritos" customModule="Kuali" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cfP-IL-cOL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OTu-Nq-jyY">
+                                <rect key="frame" x="20" y="87" width="374" height="722"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Y0V-fg-CgQ">
+                                    <size key="itemSize" width="176" height="186"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="celda" reuseIdentifier="celda" id="WkN-xD-Dmx" customClass="CeldaProducto" customModule="Kuali" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="176" height="186"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="176" height="186"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4w2-Wi-7c4">
+                                                    <rect key="frame" x="0.0" y="0.0" width="176" height="121"/>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="A1X-7Q-JDd">
+                                                    <rect key="frame" x="8" y="135" width="148" height="36.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="nombretxt" text="Nombre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yy3-4e-zFN">
+                                                            <rect key="frame" x="0.0" y="0.0" width="148" height="20.5"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="Uj7-Cg-o7J">
+                                                            <rect key="frame" x="0.0" y="20.5" width="148" height="16"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="precio.txt" text="Precio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y9z-Kr-c5T">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="59.5" height="16"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="likes.txt" text="NumLikes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nTL-n0-Pe4">
+                                                                    <rect key="frame" x="88.5" y="0.0" width="59.5" height="16"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="A1X-7Q-JDd" secondAttribute="trailing" constant="20" id="4Hn-XU-iO9"/>
+                                            <constraint firstItem="A1X-7Q-JDd" firstAttribute="leading" secondItem="WkN-xD-Dmx" secondAttribute="leading" constant="8" id="6GT-fI-UNo"/>
+                                            <constraint firstItem="4w2-Wi-7c4" firstAttribute="centerX" secondItem="WkN-xD-Dmx" secondAttribute="centerX" id="Qgq-dX-3JD"/>
+                                            <constraint firstItem="4w2-Wi-7c4" firstAttribute="centerY" secondItem="WkN-xD-Dmx" secondAttribute="centerY" constant="-32.5" id="SGG-Ii-5kz"/>
+                                            <constraint firstItem="4w2-Wi-7c4" firstAttribute="leading" secondItem="WkN-xD-Dmx" secondAttribute="leading" id="vDL-es-YII"/>
+                                            <constraint firstAttribute="bottom" secondItem="4w2-Wi-7c4" secondAttribute="bottom" constant="65" id="wGj-pl-oD2"/>
+                                            <constraint firstAttribute="bottom" secondItem="A1X-7Q-JDd" secondAttribute="bottom" constant="14.5" id="xnY-bU-Q0M"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="imagen" destination="4w2-Wi-7c4" id="00S-aG-GZJ"/>
+                                            <outlet property="likes" destination="nTL-n0-Pe4" id="bok-41-L9Y"/>
+                                            <outlet property="nombre" destination="yy3-4e-zFN" id="9oq-6a-QS4"/>
+                                            <outlet property="precio" destination="y9z-Kr-c5T" id="end-DA-VbF"/>
+                                            <segue destination="0PX-bF-hy3" kind="show" identifier="favorito_detalle" id="jFA-CR-Nug"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Ml5-0U-rhk"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="a3P-bT-sXM"/>
+                    <connections>
+                        <outlet property="collectionView" destination="OTu-Nq-jyY" id="ZOY-BE-Q4Q"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RxI-Ze-U5k" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="532" y="1049"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="oPe-I2-8Ho">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4Pt-r9-VOB" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="ZQ6-jo-WAo"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9eo-hl-giJ">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="jpf-zy-sPe" kind="relationship" relationship="rootViewController" id="eiV-Yu-dTH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vc6-uP-3Mz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-378" y="1049"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="unfavoriteheart" width="20" height="19"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4XU-7g-Dfh"/>
+        <segue reference="jFA-CR-Nug"/>
     </inferredMetricsTieBreakers>
 </document>

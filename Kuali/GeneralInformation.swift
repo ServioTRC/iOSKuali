@@ -12,4 +12,5 @@ import Firebase
 class GeneralInformation{
     static var productos : [DataSnapshot]! = []
     static var categorias : [DataSnapshot]! = []
+    static var favoritos: [Int]! = [1, 4, 6]
 }
