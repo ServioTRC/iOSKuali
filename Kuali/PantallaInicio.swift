@@ -17,6 +17,7 @@ class PantallaInicio: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         database = Database.database().reference()
+        loadPreferences()
         let transform = CGAffineTransform(scaleX: 3, y: 3)
         indicator.transform = transform
         indicator.startAnimating()
@@ -39,7 +40,7 @@ class PantallaInicio: UIViewController {
                 GeneralInformation.productos.append(child as! DataSnapshot)
             }
         }
-            
+        
         self.database.child("Categorias").observeSingleEvent(of: .value) { (snapshot) in
             for child in snapshot.children{
                 GeneralInformation.categorias.append(child as! DataSnapshot)
@@ -73,14 +74,26 @@ class PantallaInicio: UIViewController {
     func realizarCambio(){
         self.performSegue(withIdentifier: "CambioAProductos", sender: self)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func loadPreferences(){
+        let preferences = UserDefaults.standard
+        let value = preferences.array(forKey: "Kuali")
+        if value != nil{
+            GeneralInformation.favoritos = (value as! [Int])
+        } else {
+            GeneralInformation.favoritos = []
+        }
+        //label.text = "\(String(describing: ViewController.prefSet))"
+        //ViewController.prefSet.append(2)
     }
-    */
-
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

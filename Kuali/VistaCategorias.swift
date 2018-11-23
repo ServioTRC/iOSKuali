@@ -9,15 +9,18 @@
 import UIKit
 import Firebase
 
-class VistaCategorias: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class VistaCategorias: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate {
     
     var categorias : [DataSnapshot]! = []
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var barra_busqueda: UISearchBar!
+    var busqueda = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
         self.categorias = GeneralInformation.categorias
+        self.barra_busqueda.delegate = self
         // Do any additional setup after loading the view.
     }
     
@@ -26,9 +29,15 @@ class VistaCategorias: UIViewController, UICollectionViewDelegate, UICollectionV
         // Dispose of any resources that can be recreated.
     }
     
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        print("Cambio")
+        self.busqueda = barra_busqueda.text!
+        self.performSegue(withIdentifier: "categorias_filtro", sender: self)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.categorias.count
-    }
+    } //43 42 78
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "celda", for: indexPath) as! CeldaCategoria
@@ -46,7 +55,7 @@ class VistaCategorias: UIViewController, UICollectionViewDelegate, UICollectionV
                         let respuesta = responde as! HTTPURLResponse
                         if respuesta.statusCode == 200 {
                             DispatchQueue.main.async {
-                                cell.imagen.image = UIImage(data: data!)!
+                                cell.imagen.image = UIImage(data: data!)
                             }
                         }
                     } else {
@@ -58,16 +67,16 @@ class VistaCategorias: UIViewController, UICollectionViewDelegate, UICollectionV
         }
         return cell
     }
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "filtro_categoria"{
@@ -76,7 +85,12 @@ class VistaCategorias: UIViewController, UICollectionViewDelegate, UICollectionV
             destinationViewController.tipo_filtrado = "categoria"
             destinationViewController.nombre_filtrado = cell.nombre.text!
             //print("cambio \(self.id_producto)")
+        } else if(segue.identifier == "categorias_filtro"){
+            let destinationViewController = segue.destination as! ProductosFiltrados
+            destinationViewController.tipo_filtrado = "nombre"
+            destinationViewController.nombre_filtrado = self.busqueda
+            print(self.busqueda)
         }
     }
-
+    
 }

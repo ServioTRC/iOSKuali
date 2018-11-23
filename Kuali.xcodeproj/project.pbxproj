@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		653F2D4221A7C0D900B3B951 /* PantallaFormulario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653F2D4121A7C0D900B3B951 /* PantallaFormulario.swift */; };
 		65ABB4FD219B9849005B1A78 /* Producto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65ABB4FC219B9849005B1A78 /* Producto.swift */; };
 		65ABB4FF219B9E9A005B1A78 /* CeldaProducto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65ABB4FE219B9E9A005B1A78 /* CeldaProducto.swift */; };
 		65E74426219789EB0008539F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E74425219789EB0008539F /* AppDelegate.swift */; };
@@ -19,6 +20,7 @@
 		65E7445721978A450008539F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 65E7445521978A450008539F /* GoogleService-Info.plist */; };
 		65E7445821978A450008539F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 65E7445521978A450008539F /* GoogleService-Info.plist */; };
 		971E65AB219F962300897469 /* VistaFavoritos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E65AA219F962300897469 /* VistaFavoritos.swift */; };
+		978D220F21A8484A008AD676 /* Iconos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978D220E21A8484A008AD676 /* Iconos.swift */; };
 		97A619A7219F6FF00048FE5E /* ProductosFiltrados.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A619A6219F6FF00048FE5E /* ProductosFiltrados.swift */; };
 		97F63A6B219F21CB00FB8EE8 /* PantallaInicio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F63A6A219F21CB00FB8EE8 /* PantallaInicio.swift */; };
 		97F63A6D219F2B2D00FB8EE8 /* GeneralInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F63A6C219F2B2D00FB8EE8 /* GeneralInformation.swift */; };
@@ -48,6 +50,7 @@
 /* Begin PBXFileReference section */
 		00E556D3F436F4DD6A5623CF /* Pods_KualiUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KualiUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4334DB57EDE7C54A55485B07 /* Pods_Kuali.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kuali.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		653F2D4121A7C0D900B3B951 /* PantallaFormulario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantallaFormulario.swift; sourceTree = "<group>"; };
 		65ABB4FC219B9849005B1A78 /* Producto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Producto.swift; sourceTree = "<group>"; };
 		65ABB4FE219B9E9A005B1A78 /* CeldaProducto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CeldaProducto.swift; sourceTree = "<group>"; };
 		65E74422219789EB0008539F /* Kuali.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kuali.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,6 +67,7 @@
 		65E74447219789EB0008539F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		65E7445521978A450008539F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		971E65AA219F962300897469 /* VistaFavoritos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VistaFavoritos.swift; sourceTree = "<group>"; };
+		978D220E21A8484A008AD676 /* Iconos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Iconos.swift; sourceTree = "<group>"; };
 		97A619A6219F6FF00048FE5E /* ProductosFiltrados.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductosFiltrados.swift; sourceTree = "<group>"; };
 		97F63A6A219F21CB00FB8EE8 /* PantallaInicio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantallaInicio.swift; sourceTree = "<group>"; };
 		97F63A6C219F2B2D00FB8EE8 /* GeneralInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralInformation.swift; sourceTree = "<group>"; };
@@ -140,7 +144,9 @@
 				CB621EB1219F5B0B00D2B8B2 /* ProductoDetalle.swift */,
 				971E65AA219F962300897469 /* VistaFavoritos.swift */,
 				65E74427219789EB0008539F /* ViewController.swift */,
+				978D220E21A8484A008AD676 /* Iconos.swift */,
 				65E74429219789EB0008539F /* Main.storyboard */,
+				653F2D4121A7C0D900B3B951 /* PantallaFormulario.swift */,
 				65ABB4FE219B9E9A005B1A78 /* CeldaProducto.swift */,
 				65ABB4FC219B9849005B1A78 /* Producto.swift */,
 				65E7442C219789EB0008539F /* Assets.xcassets */,
@@ -365,12 +371,14 @@
 			files = (
 				65ABB4FD219B9849005B1A78 /* Producto.swift in Sources */,
 				97F63A71219F2F9800FB8EE8 /* VistaCategorias.swift in Sources */,
+				978D220F21A8484A008AD676 /* Iconos.swift in Sources */,
 				65E74428219789EB0008539F /* ViewController.swift in Sources */,
 				971E65AB219F962300897469 /* VistaFavoritos.swift in Sources */,
 				97F63A6F219F2EB600FB8EE8 /* CeldaCategoria.swift in Sources */,
 				CB621EB2219F5B0B00D2B8B2 /* ProductoDetalle.swift in Sources */,
 				97F63A6B219F21CB00FB8EE8 /* PantallaInicio.swift in Sources */,
 				97F63A6D219F2B2D00FB8EE8 /* GeneralInformation.swift in Sources */,
+				653F2D4221A7C0D900B3B951 /* PantallaFormulario.swift in Sources */,
 				65E74426219789EB0008539F /* AppDelegate.swift in Sources */,
 				97A619A7219F6FF00048FE5E /* ProductosFiltrados.swift in Sources */,
 				65ABB4FF219B9E9A005B1A78 /* CeldaProducto.swift in Sources */,
@@ -534,6 +542,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Kuali/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mx.itesm.kuali.kuali;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -549,6 +558,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Kuali/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mx.itesm.kuali.kuali;
 				PRODUCT_NAME = "$(TARGET_NAME)";

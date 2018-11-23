@@ -11,11 +11,13 @@ import Firebase
 
 class ProductosFiltrados: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
+    @IBOutlet weak var label: UILabel!
     var tipo_filtrado = "" //nombre, categoria
     var nombre_filtrado = ""
     var cat_tag = ""
     var productos : [DataSnapshot]! = []
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var no_hay_productos: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +28,6 @@ class ProductosFiltrados: UIViewController, UICollectionViewDelegate, UICollecti
         } else {
             filtrarProductosNombre()
         }
-        ordenarProductos()
         // Do any additional setup after loading the view.
     }
     
@@ -51,8 +52,10 @@ class ProductosFiltrados: UIViewController, UICollectionViewDelegate, UICollecti
             } else if(nombre_filtrado == "Tecnología"){
                 cat_tag = "Tecnologia"
             }
+            self.label.text? = "Categoría: "+cat_tag
         } else {
             cat_tag = nombre_filtrado
+            self.label.text? = "Búsqueda: "+cat_tag
         }
     }
     
@@ -64,12 +67,38 @@ class ProductosFiltrados: UIViewController, UICollectionViewDelegate, UICollecti
                 productos.append(producto)
             }
         }
+        print("Num prod: \(productos.count)")
+        if(productos.count <= 0){
+            collectionView.isHidden = true
+            no_hay_productos.isHidden = false
+        } else {
+            no_hay_productos.isHidden = true
+            collectionView.isHidden = false
+            ordenarProductos()
+        }
     }
     
     func filtrarProductosNombre(){
-        var prod_name: String
+        var prod_name: String!
+        var prod_descr: String!
+        var prod_marca: String!
+        for producto in GeneralInformation.productos{
+            prod_name = (producto.childSnapshot(forPath: "nombre").value as! String)
+            prod_descr = (producto.childSnapshot(forPath: "descripcion").value as! String)
+            prod_marca = (producto.childSnapshot(forPath: "marca").value as! String)
+            if(prod_name.lowercased().contains(self.nombre_filtrado.lowercased()) || prod_descr.lowercased().contains(self.nombre_filtrado.lowercased()) || prod_marca.lowercased().contains(self.nombre_filtrado.lowercased())){
+                productos.append(producto)
+            }
+        }
+        print("Num prod: \(productos.count)")
+        if(productos.count <= 0){
+            collectionView.isHidden = false
+        } else {
+            no_hay_productos.isHidden = true
+            ordenarProductos()
+        }
     }
-
+    
     func ordenarProductos(){
         var temp : DataSnapshot!
         var first: CFNumber
@@ -104,7 +133,7 @@ class ProductosFiltrados: UIViewController, UICollectionViewDelegate, UICollecti
             //print("celda\(cell.id_producto)")
             cell.nombre.text = nomProd
             cell.precio.text = "$\(precioProd)"
-            cell.likes.text = "\(likesProd)"
+            cell.likes.text = "\(likesProd) Likes"
             cell.imagen.image = UIImage.init(named: "cargando")
             
             let string_url = (productoSnapshot.childSnapshot(forPath: "url_imagenes").value as! [String])[0]
@@ -130,16 +159,16 @@ class ProductosFiltrados: UIViewController, UICollectionViewDelegate, UICollecti
         
         return cell
     }
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    } filtrado_detalle
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     } filtrado_detalle
+     */
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "filtrado_detalle"{
@@ -149,5 +178,6 @@ class ProductosFiltrados: UIViewController, UICollectionViewDelegate, UICollecti
             //print("cambio \(self.id_producto)")
         }
     }
-
+    
 }
+
